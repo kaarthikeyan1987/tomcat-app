@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: tomcat
+  namespace: 
+spec:
+  selector:
+    app: tomcat
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: http
+  type: LoadBalancer

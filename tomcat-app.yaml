@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tomcat-deployment
+  labels:
+    app: tomcat
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tomcat
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: tomcat
+        tier: backend
+    spec:
+      containers:
+        - name: tomcat
+          image: 8kmilesjithin/tom-expo:expo2
+          stdin: true
+          tty: true
+          ports:
+            - name: http
+              containerPort: 8080
